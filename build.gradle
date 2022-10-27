@@ -1,0 +1,36 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.7.20'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    implementation (
+        "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.20",
+    )
+
+    testImplementation(
+            "org.jetbrains.kotlin:kotlin-stdlib:1.7.20",
+            'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4',
+            'io.kotest:kotest-runner-junit5:5.5.1',
+            'io.kotest:kotest-assertions-core-jvm:5.5.1',
+            'io.kotest:kotest-property-jvm:5.5.1',
+            'io.mockk:mockk:1.13.2',
+    )
+}
+
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
